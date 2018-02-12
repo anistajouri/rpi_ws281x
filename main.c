@@ -63,7 +63,7 @@ static char VERSION[] = "XX.YY.ZZ";
 #define STRIP_TYPE              WS2811_STRIP_GBR		// WS2812/SK6812RGB integrated chip+leds
 //#define STRIP_TYPE            SK6812_STRIP_RGBW		// SK6812RGBW (NOT SK6812RGB)
 
-#define WIDTH                   8
+#define WIDTH                   32
 #define HEIGHT                  8
 #define LED_COUNT               (WIDTH * HEIGHT)
 

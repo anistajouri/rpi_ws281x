@@ -30,7 +30,7 @@ LED_DMA        = 10      # DMA channel to use for generating signal (try 10)
 LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
-LED_STRIP      = ws.WS2811_STRIP_GRB   # Strip type and colour ordering
+LED_STRIP      = ws.WS2811_STRIP_RGB   # Strip type and colour ordering
 
 
 
@@ -97,25 +97,26 @@ if __name__ == '__main__':
         opt_parse()
 
 	# Create NeoPixel object with appropriate configuration.
-	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
+	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
+                #, LED_STRIP)
 	# Intialize the library (must be called once before other functions).
 	strip.begin()
 
 	print ('Press Ctrl-C to quit.')
 	while True:
-		print ('Color wipe animations.')
+#		print ('Color wipe animations.')
                 
-		colorWipe(strip, Color(255, 32, 0))  # Orange wipe
-#		colorWipe(strip, Color(255, 0, 0))  # Red wipe
+#		colorWipe(strip, Color(255, 32, 0))  # Orange wipe
+		colorWipe(strip, Color(32, 255, 0))  # Red wipe
 #		colorWipe(strip, Color(0, 255, 0))  # Green wipe
-#		colorWipe(strip, Color(0, 0, 255))  # Blue wipe
-		print ('Theater chase animations.')
+		colorWipe(strip, Color(0, 0, 255))  # Blue wipe
+#		print ('Theater chase animations.')
 
 		theaterChase(strip, Color(255, 32, 0))  # Orange theater chase
 #		theaterChase(strip, Color(127, 127, 127))  # White theater chase
 #		theaterChase(strip, Color(127,   0,   0))  # Red theater chase
 #		theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
-		print ('Rainbow animations.')
+#		print ('Rainbow animations.')
 	#	rainbow(strip)
 #		rainbowCycle(strip)
 #		theaterChaseRainbow(strip)
